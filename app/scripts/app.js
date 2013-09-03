@@ -1,6 +1,12 @@
 'use strict';
 
-angular.module('centercareApp', [])
+/**
+ * The main centercareApp module
+ *
+ * @type {angular.Module}
+ */
+
+angular.module('centercareApp', ['ui', 'LocalStorageModule', 'ui.bootstrap', 'firebase'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {

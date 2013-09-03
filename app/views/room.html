@@ -1,1 +1,34 @@
-<p>This is the room view.</p>
+<div ng-controller="RoomCtrl" class="row">
+  <div class="col-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <form ng-submit="addInPerson()">
+          <div class="controls form-inline">
+            <div class="input-group">
+              <p class="text-info">
+                {{currentRoomName}} has <label class="text-success">{{totalCount}} </label> children in the room.
+                  Total Absent: <label class="text-success">{{absentCount}}</label>
+                <input type="text" ng-model="inPerson" typeahead="person for person in centerSessionOutList | filter:$viewValue">
+                <input type="submit" class="btn btn-small btn-warning" value="In">
+              </p>
+            </div>
+          </div>
+        </form>
+      </div>
+        <div class="row">
+          <div class="col-5">
+              <p ng-repeat="(id, person) in rooms | notAbsentFilter">
+              <button class="btn btn-small btn-primary" ng-click="toggleAbsent(id)">{{person.name}}</button>
+            </p>
+          </div>
+          <div class="col-7">
+            <div class="btn-group">
+              <label ng-repeat="(id, person) in rooms | absentFilter">
+                <label class="btn btn-small btn-info" ng-click="toggleAbsent(id)">{{person.name}}</label>
+                <button class="btn btn-small btn-danger" ng-click="deleteFromRoom(id)">X</button>
+              </p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
