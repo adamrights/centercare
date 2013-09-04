@@ -1,5 +1,5 @@
 <section ng-controller="RoomCtrl" class="container">
-  <div class="col-12">
+  <div class="col-md-12">
     <div class="panel panel-default">
       <header class="panel-heading" id="room-stats">
         <form ng-submit="addInPerson()">
@@ -15,13 +15,13 @@
           </div>
         </form>
       </header> <!--panel-heading-->
-        <section class="container">
-          <div class="col-5">
+        <section class="panel-body">
+          <div class="col-md-5">
               <p ng-repeat="(id, person) in rooms | notAbsentFilter">
               <button class="btn btn-small btn-success" ng-click="toggleAbsent(id)">{{person.name}}</button>
             </p>
           </div>
-          <div class="col-7">
+          <div class="col-md-7">
             <div class="btn-group">
               <label ng-repeat="(id, person) in rooms | absentFilter">
                 <label class="btn btn-small btn-info" ng-click="toggleAbsent(id)">{{person.name}}</label>
