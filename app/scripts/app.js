@@ -6,11 +6,11 @@
  * @type {angular.Module}
  */
 
-angular.module('centercareApp', ['firebase'])
+angular.module('centercareApp', ['firebase', 'ngRoute'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/room.html', //for dev only
+        templateUrl: 'views/room.html',
         controller: 'RoomCtrl'
       })
       .when('/room', {
