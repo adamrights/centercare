@@ -1,4 +1,4 @@
-<section ng-controller="RoomCtrl" >
+<section ng-controller="RoomCtrl">
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="panel panel-default">
 
@@ -9,7 +9,7 @@
               <p class="text-info">
                 {{currentRoomName}} has <label class="text-success">{{totalCount}} </label> children in the room.
                   Total Absent: <label class="text-success">{{absentCount}}</label>
-                <input type="text" ng-model="inPerson" typeahead="person for person in centerSessionOutList | filter:$viewValue">
+                <input type="text" class="ngTypeahead" datasets="centerSessionOutList" ng-model="inPerson">
                 <input type="submit" class="btn btn-small btn-warning" value="In">
               </p>
             </div>

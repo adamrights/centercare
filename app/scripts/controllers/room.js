@@ -22,7 +22,7 @@ angular.module('centercareApp')
       }, true);
 
       $scope.addInPerson = function () {
-        var newInPerson = $scope.inPerson.trim(); //inPerson instead??
+        var newInPerson = $scope.inPerson.value; 
         if (!newInPerson.length) {
           return;
         }
@@ -30,7 +30,7 @@ angular.module('centercareApp')
           name: newInPerson,
           absent: false
         };
-        $scope.inPerson = '';
+        $scope.inPerson = {value: ''};
       };
 
       $scope.toggleAbsent = function (id) {
@@ -46,15 +46,14 @@ angular.module('centercareApp')
         delete $scope.rooms[id];
       };
     };  // end of onDataLoaded
-
     var url = 'http://centercare.firebaseio.com/rooms';
-    $scope.newInPerson = '';
-    $scope.selected = undefined;
-    $scope.inPerson = '';
-    $scope.centerSessionOutList = ['Ali Kang', 'Alan Wan', 'Ari Skind', 'Ark Rsas', 'Danny California', ' Miles Colorado', ' Harry Connecticut', 'Louis Delare', 'Ryder Florida', 'Sam Georgia', 'Haw Ywasaii', 'Mandy Idaho', 'Illiana Anois', 'Indy Jones', 'Holly Iowa', 'Kant Immanual', 'Fred Kentu', 'Louis Xiana', 'Milford Maine', 'Mary Landau', 'Massach Vetts', 'Michial Yogan', 'Minnesota Wild', 'Missi Rissii', 'Sour Apple', 'Montana Jones', 'Angel Texas', 'Uta Tikembo', 'Vert Greenmont', 'Dan Virgin', 'Sam Washington', 'Colin West', 'Wintin Whisksin', 'Wilma Wyoming']; //will be an http.get (currently fetched from rails api)
+
+    $scope.centerSessionOutList = {
+      name: 'names',
+      local: ['Ali Kang', 'Alan Wan', 'Ari Skind', 'Ark Rsas', 'Danny California', ' Miles Colorado', ' Harry Connecticut', 'Louis Delare', 'Ryder Florida', 'Sam Georgia', 'Haw Ywasaii', 'Mandy Idaho', 'Illiana Anois', 'Indy Jones', 'Holly Iowa', 'Kant Immanual', 'Fred Kentu', 'Louis Xiana', 'Milford Maine', 'Mary Landau', 'Massach Vetts', 'Michial Yogan', 'Minnesota Wild', 'Missi Rissii', 'Sour Apple', 'Montana Jones', 'Angel Texas', 'Uta Tikembo', 'Vert Greenmont', 'Dan Virgin', 'Sam Washington', 'Colin West', 'Wintin Whisksin', 'Wilma Wyoming']
+    }; //will be an http.get (currently fetched from rails api)
     $scope.roomOutList = $scope.centerSessionOutList;
     $scope.currentRoomName = 'Brown Bear A'; // bootstrap until $http.get
-
     angularFire(new Firebase(url), $scope,'rooms', {}).then(function () {
       this.onDataLoaded($scope, url);
     }.bind(this));

@@ -8,7 +8,9 @@
     "angular-resource": "~1.2.0",
     "angular-cookies": "~1.2.0",
     "angular-sanitize": "~1.2.0",
-    "jquery": "~2.0.3"
+    "jquery": "~2.0.3",
+    "angular-typeahead": "~0.0.4",
+    "typeahead.js": "~0.9.3"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.0",

@@ -6,7 +6,7 @@
  * @type {angular.Module}
  */
 
-angular.module('centercareApp', ['firebase', 'ngRoute'])
+angular.module('centercareApp', ['firebase', 'ngRoute', 'siyfion.ngTypeahead'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
