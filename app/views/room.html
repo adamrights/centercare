@@ -1,7 +1,7 @@
 <section ng-controller="RoomCtrl" class="container">
   <div class="col-12">
     <div class="panel panel-default">
-      <div class="panel-heading">
+      <header class="panel-heading" id="room-stats">
         <form ng-submit="addInPerson()">
           <div class="controls form-inline">
             <div class="input-group">
@@ -14,11 +14,11 @@
             </div>
           </div>
         </form>
-      </div>
-        <div class="row">
+      </header> <!--panel-heading-->
+        <section class="container">
           <div class="col-5">
               <p ng-repeat="(id, person) in rooms | notAbsentFilter">
-              <button class="btn btn-small btn-primary" ng-click="toggleAbsent(id)">{{person.name}}</button>
+              <button class="btn btn-small btn-success" ng-click="toggleAbsent(id)">{{person.name}}</button>
             </p>
           </div>
           <div class="col-7">
@@ -29,7 +29,7 @@
               </p>
             </div>
           </div>
-        </div>
+        </section> <!--panel-content-->
     </div>
   </div>
 </section>

@@ -1,6 +1,6 @@
 // Generated on 2013-09-03 using generator-angular 0.4.0
 'use strict';
-var LIVERELOAD_PORT = 35729;
+var LIVERELOAD_PORT = 35727;
 var lrSnippet = require('connect-livereload')({ port: LIVERELOAD_PORT });
 var mountFolder = function (connect, dir) {
   return connect.static(require('path').resolve(dir));
@@ -38,7 +38,7 @@ module.exports = function (grunt) {
         tasks: ['coffee:test']
       },
       styles: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
+        files: ['<%= yeoman.app %>/styles/{,*/}*.css','app/bower_components/bootstrap-theme-centercare/dist/css/bootstrap.css'],
         tasks: ['copy:styles', 'autoprefixer']
       },
       livereload: {
@@ -47,9 +47,10 @@ module.exports = function (grunt) {
         },
         files: [
           '<%= yeoman.app %>/{,*/}*.html',
+          'app/bower_components/bootstrap-theme-centercare/dist/css/bootstrap.css',
           '.tmp/styles/{,*/}*.css',
           '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
         ]
       }
     },
@@ -66,9 +67,9 @@ module.exports = function (grunt) {
     },
     connect: {
       options: {
-        port: 9000,
+        port: 9700,
         // Change this to '0.0.0.0' to access the server from outside.
-        hostname: 'localhost'
+        hostname: '0.0.0.0'
       },
       livereload: {
         options: {
