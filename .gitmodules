@@ -1,0 +1,3 @@
+[submodule "app/bower_components/bootstrap-theme-centercare"]
+	path = app/bower_components/bootstrap-theme-centercare
+	url = https://github.com/adamrights/bootstrap-theme-centercare.git
