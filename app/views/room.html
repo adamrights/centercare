@@ -16,12 +16,12 @@
         </form>
       </header> <!--panel-heading-->
         <section class="panel-body">
-          <div class="col-md-5">
+          <div class="col-lg-3 col-lg-offset-3 col-md-5 col-sm-5 col-xs-5">
               <p ng-repeat="(id, person) in rooms | notAbsentFilter">
               <button class="btn btn-small btn-success" ng-click="toggleAbsent(id)">{{person.name}}</button>
             </p>
           </div>
-          <div class="col-md-7">
+          <div class="col-lg-4 col-md-7 col-sm-7 col-xs-7">
             <div class="btn-group">
               <label ng-repeat="(id, person) in rooms | absentFilter">
                 <label class="btn btn-small btn-info" ng-click="toggleAbsent(id)">{{person.name}}</label>
