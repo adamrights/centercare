@@ -6,46 +6,47 @@
 angular.module('centercareApp')
   .controller('RoomCtrl', function ($scope, angularFire) {
     this.onDataLoaded = function onDataLoaded($scope, url) {
-        $scope.$watch('rooms', function ()  {
-            var total = 0
-            var absent = 0;
-            angular.forEach($scope.rooms, function (inPerson) {
-                if (inPerson.absent === false){
-                    total++;
-                }
-                if (inPerson.absent === true) {
-                    absent++;
-                }
-            });
-            $scope.totalCount = total;
-            $scope.absentCount = absent;
-        }, true);
+      $scope.$watch('rooms', function ()  {
+        var total = 0;
+        var absent = 0;
+        angular.forEach($scope.rooms, function (inPerson) {
+          if (inPerson.absent === false){
+            total++;
+          }
+          if (inPerson.absent === true) {
+            absent++;
+          }
+        });
+        $scope.totalCount = total;
+        $scope.absentCount = absent;
+      }, true);
 
-        $scope.addInPerson = function () {
-           var newInPerson = $scope.inPerson.trim(); //inPerson instead??
-            if (!newInPerson.length) {
-                return;
-            }
-            $scope.rooms[new Firebase(url).push().name()] = {
-                name: newInPerson,
-                absent: false
-            };
-            $scope.inPerson = '';
+      $scope.addInPerson = function () {
+        var newInPerson = $scope.inPerson.trim(); //inPerson instead??
+        if (!newInPerson.length) {
+          return;
+        }
+        $scope.rooms[new Firebase(url).push().name()] = {
+          name: newInPerson,
+          absent: false
         };
+        $scope.inPerson = '';
+      };
 
-        $scope.toggleAbsent = function (id) {
-            if ($scope.rooms[id].absent === false) {
-                $scope.rooms[id].absent=true;
-            }
-            else {
-                $scope.rooms[id].absent=false;
-            }
-        };
+      $scope.toggleAbsent = function (id) {
+        if ($scope.rooms[id].absent === false) {
+          $scope.rooms[id].absent=true;
+        }
+        else {
+          $scope.rooms[id].absent=false;
+        }
+      };
 
-        $scope.deleteFromRoom = function (id) {
-            delete $scope.rooms[id];
-        };
+      $scope.deleteFromRoom = function (id) {
+        delete $scope.rooms[id];
+      };
     };  // end of onDataLoaded
+
     var url = 'http://centercare.firebaseio.com/rooms';
     $scope.newInPerson = '';
     $scope.selected = undefined;
@@ -55,7 +56,7 @@ angular.module('centercareApp')
     $scope.currentRoomName = 'Brown Bear A'; // bootstrap until $http.get
 
     angularFire(new Firebase(url), $scope,'rooms', {}).then(function () {
-        this.onDataLoaded($scope, url);
+      this.onDataLoaded($scope, url);
     }.bind(this));
-});
+  });
 

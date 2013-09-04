@@ -10,7 +10,7 @@ angular.module('centercareApp', ['firebase', 'ngRoute'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/room.html',
+        templateUrl: 'views/room.html', //for dev of room
         controller: 'RoomCtrl'
       })
       .when('/room', {

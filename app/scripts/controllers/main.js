@@ -2,9 +2,10 @@
 
 angular.module('centercareApp')
   .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
+    $scope.centercare= [
       'HTML5 Boilerplate',
       'AngularJS',
+      'Firebase',
       'Karma'
     ];
   });
