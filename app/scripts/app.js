@@ -6,12 +6,12 @@
  * @type {angular.Module}
  */
 
-angular.module('centercareApp', ['ui', 'LocalStorageModule', 'ui.bootstrap', 'firebase'])
+angular.module('centercareApp', ['firebase'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/room.html', //for dev only
+        controller: 'RoomCtrl'
       })
       .when('/room', {
         templateUrl: 'views/room.html',
