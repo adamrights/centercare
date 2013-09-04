@@ -1,6 +1,7 @@
-<section ng-controller="RoomCtrl" class="container">
-  <div class="col-md-12">
+<section ng-controller="RoomCtrl" >
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="panel panel-default">
+
       <header class="panel-heading" id="room-stats">
         <form ng-submit="addInPerson()">
           <div class="controls form-inline">
@@ -15,21 +16,20 @@
           </div>
         </form>
       </header> <!--panel-heading-->
-        <section class="panel-body">
-          <div class="col-lg-3 col-lg-offset-3 col-md-5 col-sm-5 col-xs-5">
-              <p ng-repeat="(id, person) in rooms | notAbsentFilter">
-              <button class="btn btn-small btn-success" ng-click="toggleAbsent(id)">{{person.name}}</button>
-            </p>
-          </div>
-          <div class="col-lg-4 col-md-7 col-sm-7 col-xs-7">
-            <div class="btn-group">
-              <label ng-repeat="(id, person) in rooms | absentFilter">
-                <label class="btn btn-small btn-info" ng-click="toggleAbsent(id)">{{person.name}}</label>
-                <button class="btn btn-small btn-danger" ng-click="deleteFromRoom(id)">X</button>
-              </p>
+
+      <section class="panel-body">
+        <div class="col-lg-5 col-lg-offset-2 col-md-5 col-sm-5 col-xs-5">
+          <label ng-repeat="(id, person) in rooms | notAbsentFilter">
+            <button class="btn btn-small btn-success" ng-click="toggleAbsent(id)">{{person.name}}</button>
+          </label>
+        </div>
+        <div class="col-lg-5 col-lg-offset-2 col-md-7 col-sm-7 col-xs-7">
+            <div ng-repeat="(id, person) in rooms | absentFilter">
+              <button class="btn btn-small btn-info" ng-click="toggleAbsent(id)">{{person.name}}</button>
+              <button class="btn btn-small btn-danger" ng-click="deleteFromRoom(id)">X</button>
             </div>
-          </div>
-        </section> <!--panel-content-->
+        </div>
+      </section> <!--panel-content-->
     </div>
   </div>
 </section>
