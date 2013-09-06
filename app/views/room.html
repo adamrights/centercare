@@ -1,6 +1,6 @@
-<section ng-controller="RoomCtrl">
+<section ng-controller="RoomCtrl" class="container-tablet">
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div class="panel panel-default">
+    <main class="panel panel-default">
 
       <header class="panel-heading" id="room-stats">
         <form ng-submit="addInPerson()">
@@ -19,17 +19,19 @@
 
       <section class="panel-body">
         <div class="col-lg-5 col-lg-offset-2 col-md-5 col-sm-5 col-xs-5">
-          <label ng-repeat="(id, person) in rooms | notAbsentFilter">
+          <label class="person" ng-repeat="(id, person) in rooms | notAbsentFilter">
             <button class="btn btn-small btn-success" ng-click="toggleAbsent(id)">{{person.name}}</button>
           </label>
         </div>
         <div class="col-lg-5 col-lg-offset-2 col-md-7 col-sm-7 col-xs-7">
-            <div ng-repeat="(id, person) in rooms | absentFilter">
+            <label class="person" ng-repeat="(id, person) in rooms | absentFilter">
               <button class="btn btn-small btn-info" ng-click="toggleAbsent(id)">{{person.name}}</button>
               <button class="btn btn-small btn-danger" ng-click="deleteFromRoom(id)">X</button>
-            </div>
+            </label>
         </div>
-      </section> <!--panel-content-->
-    </div>
+      </section> <!--panel-body-->
+    </main> <!-- panel -->
   </div>
 </section>
+
+
