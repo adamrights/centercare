@@ -11,6 +11,8 @@
                   Total Absent: <label class="text-success">{{absentCount}}</label>
                 <input type="text" class="ngTypeahead" datasets="centerSessionOutList" ng-model="inPerson">
                 <input type="submit" class="btn btn-small btn-warning" value="In">
+                 <input type="text" class="ngTypeahead" datasets="classSessionRoomList" ng-model="selection">
+                <input type="submit" class="btn btn-small btn-warning" value="Send To">
               </p>
             </div>
           </div>
@@ -19,17 +21,21 @@
 
       <section class="panel-body">
         <div class="col-lg-5 col-lg-offset-2 col-md-5 col-sm-5 col-xs-5">
+        <label class="person" ng-repeat="(id, person) in rooms | notAbsentStaffFilter">
+            <button class="btn btn-small btn-warning" ng-click="toggleAbsent(id)">{{person.name}}</button>
+          </label>
           <label class="person" ng-repeat="(id, person) in rooms | notAbsentFilter">
-            <button class="btn btn-small btn-success" ng-click="toggleAbsent(id)">{{person.name}}</button>
+            <button class="btn btn-small btn-success" ng-dblclick="toggleAbsent(id)">{{person.name}}</button>
           </label>
         </div>
         <div class="col-lg-5 col-lg-offset-2 col-md-7 col-sm-7 col-xs-7">
             <label class="person" ng-repeat="(id, person) in rooms | absentFilter">
-              <button class="btn btn-small btn-info" ng-click="toggleAbsent(id)">{{person.name}}</button>
+              <button class="btn btn-small btn-info" ng-dblclick="toggleAbsent(id)">{{person.name}}</button>
               <button class="btn btn-small btn-danger" ng-click="deleteFromRoom(id)">X</button>
             </label>
         </div>
       </section> <!--panel-body-->
+
     </main> <!-- panel -->
   </div>
 </section>

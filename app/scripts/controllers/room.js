@@ -55,6 +55,11 @@ angular.module('centercareApp')
       local: ['Ali Kang', 'Alan Wan', 'Ari Skind', 'Ark Rsas', 'Danny California', ' Miles Colorado', ' Harry Connecticut', 'Louis Delare', 'Ryder Florida', 'Sam Georgia', 'Haw Ywasaii', 'Mandy Idaho', 'Illiana Anois', 'Indy Jones', 'Holly Iowa', 'Kant Immanual', 'Fred Kentu', 'Louis Xiana', 'Milford Maine', 'Mary Landau', 'Massach Vetts', 'Michial Yogan', 'Minnesota Wild', 'Missi Rissii', 'Sour Apple', 'Montana Jones', 'Angel Texas', 'Uta Tikembo', 'Vert Greenmont', 'Dan Virgin', 'Sam Washington', 'Colin West', 'Wintin Whisksin', 'Wilma Wyoming']
     }; //will be an http.get (currently fetched from rails api)
 
+  $scope.classSessionRoomList = {
+      name: 'classRoomList',
+      local: ['Brown Bear A','Brown Bear B','Brown Bear C','Playground','Resource Room','Office']
+    }; 
+
     $scope.roomOutList = $scope.centerSessionOutList;
     $scope.currentRoomName = 'Brown Bear A'; // bootstrap until $http.get
     
