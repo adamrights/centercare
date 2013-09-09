@@ -2,10 +2,12 @@
 
 angular.module('centercareApp')
   .controller('MainCtrl', function ($scope) {
-    $scope.centercare= [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Firebase',
-      'Karma'
-    ];
-  });
+    $scope.ccModule= [
+      {
+        "displayName": "Brown Bears",
+        "attributes" : {
+          "minTotsMonthAge" : "42",
+          "maxTotsMonthAge" : "72",
+          "maxTotsToSeer" : "8",
+        }];
+        

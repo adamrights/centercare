@@ -1,9 +1,11 @@
-<div class="hero-unit">
-  <h1>CenterCare Overview!</h1>
-  <p>You now have</p>
-  <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
-  </ul>
-  <p>installed.</p>
-  <h3>Enjoy !</h3>
-</div>
+
+<section ng-controller="MainCtrl">
+  <main class="panel panel-default">
+    <h1>CenterCare Live Room Overview!</h1>
+      <header class="panel panel-heading">
+        <ul>
+          <li ng-repeat="ccModule in ccRooms">{{ccModule.displayName}}</li>
+        </ul>
+      </header>
+  </main>
+</section>
